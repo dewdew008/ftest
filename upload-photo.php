@@ -9,18 +9,19 @@ $u_id = $user['user_id'];
  if(isset($_POST['btn_upload'])) {
      $filetmp = $_FILES['file_img']['tmp_name'];
      $filename = $_FILES['file_img']['name'];
+     $_SESSION['filename'] = $filename;
      $filetype = $_FILES['file_img']['type'];
-     $filepath = 'img/' . $filename;
+     $filepath = 'img/customer' . $filename;
      $filetitle = strip_tags($_POST['img-title']);
      $filesize = $_FILES['file_img']['size'];
 
 
-     if ($filetype == "image/jpeg" || $filetype == "image/png") {
+     if ($filetype == "image/jpeg" || $filetype == "image/png" || $filetype == "image/gif") {
          move_uploaded_file($filetmp, $filepath);
          echo $filesize;
          $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,user_id)
                 VALUES(?,?,?,?,?,?)");
-         if ($stmt->execute([null, $filetmp, $filepath, $filetype, $filetitle, $u_id])) {
+         if ($stmt->execute([null, $filename, $filepath, $filetype, $filetitle, $u_id])) {
              header("Location: index.php");
          } else {
              echo "Something went wrong!";
