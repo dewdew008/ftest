@@ -8,19 +8,19 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 $u_id = $user['user_id'];
  if(isset($_POST['btn_upload'])) {
      $filetmp = $_FILES['file_img']['tmp_name'];
-     $filename = $_FILES['file_img']['name'];
+     $filename = $u_id.'_'.$_FILES['file_img']['name'];
      $filetype = $_FILES['file_img']['type'];
-     $filepath = 'img/' . $filename;
+     $filepath = 'img/customer/' . $filename;
      $filetitle = strip_tags($_POST['img-title']);
      $filesize = $_FILES['file_img']['size'];
 
 
-     if ($filetype == "image/jpeg" || $filetype == "image/png") {
+     if ($filetype == "image/jpeg" || $filetype == "image/png" || $filetype == "image/gif") {
          move_uploaded_file($filetmp, $filepath);
          echo $filesize;
-         $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,user_id)
-                VALUES(?,?,?,?,?,?)");
-         if ($stmt->execute([null, $filetmp, $filepath, $filetype, $filetitle, $u_id])) {
+         $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,img_watermark,user_id)
+                VALUES(?,?,?,?,?,?,?)");
+         if ($stmt->execute([null, $filename, $filepath, $filetype, $filetitle,test($filepath,$filename) ,$u_id])) {
              header("Location: index.php");
          } else {
              echo "Something went wrong!";
@@ -93,3 +93,84 @@ $u_id = $user['user_id'];
 
 </body>
 </html>
+<?php 
+function test ($filepath,$filename) 
+{
+  
+$original_image = $filepath;
+$name_array = explode('.', $filename);
+$result_image = 'img/with-credit/result_'.$name_array[0].'.'.$name_array[1];
+$watermark_image = 'img/wt/wt2.png';
+
+//set size
+$result_image_width = 640;
+$result_image_height = 480;
+$quality = 100;
+
+//get info pic
+$info = getimagesize($original_image);
+$imgtype = image_type_to_mime_type($info[2]);
+
+switch ($imgtype) {
+ case 'image/jpeg':
+  $source = imagecreatefromjpeg($original_image);
+  break;
+ case 'image/gif':
+  $source = imagecreatefromgif($original_image);
+  break;
+ case 'image/png':
+  $source = imagecreatefrompng($original_image);
+  break;
+ default:
+  die('Invalid image type.');
+}
+
+$source_width = imagesx($source);
+$source_height = imagesy($source);
+$source_ratio = $source_width / $source_height ;
+
+if ($result_image_width/$result_image_height > $source_ratio) {
+ $new_image_width = $result_image_width;
+ $new_image_height = $result_image_width/$source_ratio;
+} else {
+ $new_image_width = $result_image_height*$source_ratio;
+ $new_image_height = $result_image_height;
+}
+
+$new_image = imagecreatetruecolor(round($new_image_width), round($new_image_height));
+imagecopyresampled($new_image, $source, 0, 0, 0, 0, $new_image_width, $new_image_height, $source_width, $source_height);
+
+$new_x_mid = $new_image_width / 2;
+$new_y_mid = $new_image_height / 2;
+$old_x_mid = $result_image_width / 2;
+$old_y_mid = $result_image_height / 2;
+
+$final_source = imagecreatetruecolor($result_image_width, $result_image_height);
+imagecopyresampled($final_source, $new_image, 0, 0, ($new_x_mid - $old_x_mid), ($new_y_mid - $old_y_mid), $result_image_width, $result_image_height, $result_image_width, $result_image_height);
+
+$watermark_info = getimagesize($watermark_image);
+$imgtype = image_type_to_mime_type($watermark_info[2]);
+switch ($imgtype) {
+  case 'image/jpeg':
+   $watermark_source = imagecreatefromjpeg($watermark_image);
+   break;
+  case 'image/gif':
+   $watermark_source = imagecreatefromgif($watermark_image);
+   break;
+  case 'image/png':
+   $watermark_source = imagecreatefrompng($watermark_image);
+   break;
+  default:
+   die('Invalid watermark type.');
+}
+
+$watermark_image_width = imagesx($watermark_source);
+$watermark_image_height = imagesy($watermark_source);
+imagecopy($final_source, $watermark_source, $result_image_width - $watermark_image_width, $result_image_height - $watermark_image_height, 0, 0, $result_image_width , $result_image_height);
+
+imagejpeg($final_source, $result_image, $quality);
+imagedestroy($final_source);
+
+return $result_image;
+}
+?>
