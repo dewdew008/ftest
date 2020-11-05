@@ -51,27 +51,18 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 </nav>
 
 <h1 class="text-center"><?php echo $img['img_title'] ?></h1>
-    <div class="container">
-        <div class="photo-grid">
+    <div class="container" ><center>
+        <!-- <div class="photo-grid"> -->
             <!-- show image -->
-                    <div class="photo-grid--item">
+                    <!-- <div class="photo-grid--item"> -->
                         <a href="<?php echo $img['img_watermark'] ?>" data-lightbox="<?php echo $img['img_name'] ?>"
                            data-title="<?php echo $img['img_title'] ?>">
-                            <img src="<?php echo $img['img_watermark'] ?>" alt="">
+                            <img src="<?php echo $img['img_watermark'] ?>" alt="">&ensp;
                         </a>
-                    </div>
+                    <!-- </div> -->
 
 
-            <!-- Download -->
-            <?php
-
-                            $file = $img['img_path']; //Let say If I put the file name Bang.png
-                            echo "<a href='download.php?nama=".$file."' class='btn btn-danger'>download</a> ";
-                            ?>
-
-            <!-- Owner -->
-
-            Created By <a href="cart-profile.php?userID=<?php echo $user_id; ?>"><?php echo $user['firstname']." ".$user['lastname']?></a>
+            
 
 
 <!--                --><?php
@@ -103,8 +94,27 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 //                }
 //            ?>
 
-        </div>
+        <!-- </div> -->
+         &ensp;
+
+
+        <!-- Download -->
+            <?php
+
+                            $file = $img['img_path']; //Let say If I put the file name Bang.png
+                            // echo "<a href='download.php?nama=".$file."' class='btn btn-danger'>download</a> ";
+                            ?>
+                           <form method="POST" action="download.php">
+                             <input type="hidden" name="nama" value="<?php echo $file; ?>"> 
+                             <input type="submit" class="btn btn-danger" value="Download">
+
+                            </form>
+
+            <!-- Owner -->
+
+            Created By <a href="cart-profile.php?userID=<?php echo $user_id; ?>"><?php echo $user['firstname']." ".$user['lastname']?></a>
     </div>
+    </center>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/lightbox.js"></script>
 </body>

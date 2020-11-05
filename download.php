@@ -1,5 +1,5 @@
 <?php
-$name= $_GET['nama'];
+$name= $_POST['nama'];
 
 header('Content-Description: File Transfer');
 header('Content-Type: application/force-download');

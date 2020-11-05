@@ -91,7 +91,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
                     ?>
                             <div class="mb-3 pics animation all 2">
                                 <a href="cart-image.php?id=<?php echo $img['img_id']; ?>">
-                                    <img class="img-fluid" src="<?php echo $img['img_path'] ?>" alt="">
+                                    <img class="img-fluid" src="<?php echo $img['img_watermark'] ?>" alt="">
                                 </a>
                             </div>
 
