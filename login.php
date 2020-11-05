@@ -13,7 +13,7 @@ session_start();
 <body>
 <div class="container">
     <h1>Sign in</h1>
-    <a href="memberadd.php" class="btn btn-success mt-3">Register</a>
+    <a href="register.php" class="btn btn-success mt-3">Register</a>
     <hr>
     <?php
         if(isset($_SESSION['error'])){
