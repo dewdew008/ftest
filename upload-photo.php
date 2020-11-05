@@ -100,7 +100,7 @@ function test ($filepath,$filename)
 $original_image = $filepath;
 $name_array = explode('.', $filename);
 $result_image = 'img/with-credit/result_'.$name_array[0].'.'.$name_array[1];
-$watermark_image = 'img/wt/wt.png';
+$watermark_image = 'img/wt/wt2.png';
 
 //set size
 $result_image_width = 640;
