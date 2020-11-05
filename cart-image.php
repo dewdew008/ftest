@@ -55,9 +55,9 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
         <div class="photo-grid">
             <!-- show image -->
                     <div class="photo-grid--item">
-                        <a href="<?php echo $img['img_path'] ?>" data-lightbox="<?php echo $img['img_name'] ?>"
+                        <a href="<?php echo $img['img_watermark'] ?>" data-lightbox="<?php echo $img['img_name'] ?>"
                            data-title="<?php echo $img['img_title'] ?>">
-                            <img src="<?php echo $img['img_path'] ?>" alt="">
+                            <img src="<?php echo $img['img_watermark'] ?>" alt="">
                         </a>
                     </div>
 
