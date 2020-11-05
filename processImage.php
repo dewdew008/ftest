@@ -1,7 +1,10 @@
 <?php
-$original_image = '99-1.jpg';
+session_start();
+ require ("connection.php");
+
+$original_image = $_SESSION['filename'];
 $name_array = explode('.', $original_image);
-$result_image = 'result_'.$name_array[0].'.'.$name_array[1];
+$result_image = 'with-credit/result_'.$name_array[0].'.'.$name_array[1];
 $watermark_image = 'img/wt/wt.png';
 
 //set size
@@ -72,5 +75,6 @@ imagecopy($final_source, $watermark_source, $result_image_width - $watermark_ima
 
 imagejpeg($final_source, $result_image, $quality);
 imagedestroy($final_source);
+
 ?>
 <img src="<?php echo $result_image ; ?>" >
