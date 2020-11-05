@@ -55,31 +55,31 @@
 
     ?>
 
-    <form method="post">
+    <form method="post" action="register_db.php">
 
         <div class="form-group">
             <label for="Username">Username</label>
-            <input type="text" class="form-control" id="username" maxlength="10" name="txt-username" >
+            <input type="text" class="form-control" id="username" maxlength="10" name="txt-username" required>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password" name="txt-password" maxlength="10">
+            <input type="password" class="form-control" id="password" name="txt-password" maxlength="10" required>
         </div>
         <div class="form-group">
             <label for="Firstname">Firstname</label>
-            <input type="text" class="form-control" id="firstname" name="txt-firstname">
+            <input type="text" class="form-control" id="firstname" name="txt-firstname" required>
         </div>
         <div class="form-group">
             <label for="Lastname">Lastname</label>
-            <input type="text" class="form-control" id="lastname" name="txt-lastname">
+            <input type="text" class="form-control" id="lastname" name="txt-lastname" required>
         </div>
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="email" class="form-control" id="email" name="txt-email">
+            <input type="email" class="form-control" id="email" name="txt-email" required>
         </div>
         <div class="form-group">
             <label for="Phone">Phone</label>
-            <input type="text" class="form-control" id="phone" name="txt-phone" maxlength="10">
+            <input type="text" class="form-control" id="phone" name="txt-phone" maxlength="10" required>
         </div>
         <button type="submit" class="btn btn-success" name="btn_insert" value="Insert">Register</button>
         <a href="login.php" class="btn btn-danger">Back</a>
