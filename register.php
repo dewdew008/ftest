@@ -35,8 +35,9 @@
             header("Location: login.php");
         }
         ?>
+        
         <div <i class="fa fa-align-center" aria-hidden="true"></i>
-
+        &ensp;
             <div class="row centered-form">
 
                 <div class="panel panel-default">
