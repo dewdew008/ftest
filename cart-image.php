@@ -8,6 +8,9 @@ $stmt = $db->prepare("select * from photo where img_id = '$img_id'");
 $stmt->execute();
 $img = $stmt->fetch(PDO::FETCH_ASSOC);
 $user_id = $img['user_id'];
+$user_own = $db->prepare("select * from member where user_id = '$user_id'");
+$user_own->execute();
+$user_own = $user_own->fetch(PDO::FETCH_ASSOC);
 $user_stmt = $db->prepare("select * from member where username = '$username'");
 $user_stmt->execute();
 $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
@@ -112,7 +115,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 
             <!-- Owner -->
 
-            Created By <a href="cart-profile.php?userID=<?php echo $user_id; ?>"><?php echo $user['firstname']." ".$user['lastname']?></a>
+            Created By <a href="cart-profile.php?userID=<?php echo $user_id; ?>"><?php echo $user_own['firstname']." ".$user_own['lastname']?></a>
     </div>
     </center>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
