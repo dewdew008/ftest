@@ -32,7 +32,12 @@ class RSA{
             }
         }
         $len = strlen($str);
-        //for ($i = 0; $)
+        $output = $str;
+        for ($i = 0; $i < $len ;$i = $i + 1){
+            $output[$i] = self::myMod(self::Power($str[$i] - 'A' , $e),$n) + 'A';
+        }
+        return $output;
     }
+    
 }
 ?>
