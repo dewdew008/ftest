@@ -66,7 +66,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
         <?php
     }
     ?>
-</div>
+
 <section class="photo">
     <div class="container">
         <div class="photo-grid">
@@ -100,7 +100,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
                     ?>
                     <div class="photo-grid--item">
                         <a href="cart-image.php?id=<?php echo $img['img_id'];?>">
-                            <img src="<?php echo $img['img_path']?>" alt="">
+                            <img src="<?php echo $img['img_watermark']?>" alt="">
                         </a>
                     </div>
 
@@ -111,7 +111,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
 </section>
-
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="js/lightbox.js"></script>
 </body>
