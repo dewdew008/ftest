@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4999d936-a675-4df2-9dbf-15cdc141e91c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/RSA.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/RSA.class.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\xampp\htdocs\ftest\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jTDJ4x91Nb6uDBlzE16ReamngS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../projectSE" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4999d936-a675-4df2-9dbf-15cdc141e91c" name="Default Changelist" comment="" />
+      <created>1603819112669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603819112669</updated>
+      <workItem from="1603819113797" duration="6824000" />
+      <workItem from="1603908691865" duration="2071000" />
+      <workItem from="1604309342406" duration="784000" />
+      <workItem from="1604310319966" duration="950000" />
+      <workItem from="1604315065442" duration="238000" />
+      <workItem from="1604411954341" duration="15673000" />
+      <workItem from="1604467928839" duration="11790000" />
+      <workItem from="1604517169023" duration="594000" />
+      <workItem from="1604565796796" duration="9598000" />
+      <workItem from="1604576671316" duration="1667000" />
+      <workItem from="1604581493864" duration="4458000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
