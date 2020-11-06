@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2020 at 07:08 PM
+-- Generation Time: Nov 06, 2020 at 05:41 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `member` (
   `user_id` int(11) NOT NULL,
-  `q` int(11) NOT NULL,
+  `q` int(11) DEFAULT NULL,
   `username` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   `firstname` varchar(1000) NOT NULL,
@@ -47,7 +47,9 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`user_id`, `q`, `username`, `password`, `firstname`, `lastname`, `email`, `phone`, `status`) VALUES
 (1, 0, 'admin', 'admin', 'Dew', 'Chanayut', 'admin@gmail.com', '0954141762', 'USER'),
 (2, 0, 'admin2', 'admin2', 'admin2', 'admin2', 'admin2@gmail.com', '0000000000', 'USER'),
-(3, 0, 'admin3', 'admin3', 'dew', 'qws', 'asdwq@dwe.com', '0000000000', 'USER');
+(3, 0, 'admin3', 'admin3', 'dew', 'qws', 'asdwq@dwe.com', '0000000000', 'USER'),
+(5, NULL, 'test', '2S2', 'test', 'test', 'thanathorn001@gmail.com', '0000000000', 'USER'),
+(6, NULL, 'Gene013', '0S=/aw', 'Thanathorn', 'Songpinit', 'thanathorn001@gmail.com', '0829919610', 'USER');
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,8 @@ INSERT INTO `photo` (`img_id`, `img_name`, `img_path`, `img_type`, `img_title`, 
 (22, '1_23270290_1164002033731839_6561955943675112130_o.jpg', 'img/customer/1_23270290_1164002033731839_6561955943675112130_o.jpg', 'image/jpeg', 'gene', 'img/with-credit/result_1_23270290_1164002033731839_6561955943675112130_o.jpg', 1),
 (23, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1),
 (24, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1),
-(25, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1);
+(25, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1),
+(26, '2_blogmedia-32872.jpg', 'img/customer/2_blogmedia-32872.jpg', 'image/jpeg', '00', 'img/with-credit/result_2_blogmedia-32872.jpg', 2);
 
 --
 -- Indexes for dumped tables
@@ -101,13 +104,13 @@ ALTER TABLE `photo`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables

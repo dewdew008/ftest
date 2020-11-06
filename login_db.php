@@ -1,10 +1,14 @@
 <?php
     session_start();
     require ("connection.php");
-
+    require ("RSA.class.php");
     if(isset($_POST['login-user'])){
         $username = $_POST['txt-username'];
         $password = $_POST['txt-password'];
+        $p = 7;
+        $q = 13;
+        $cipher =  RSA::Cryptosystem_En($password,$p,$q);
+        $password = $cipher;
 
         if(empty($username)){
             $_SESSION['error'] = "Username required.";
