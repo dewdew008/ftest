@@ -6,6 +6,7 @@ $user_stmt = $db->prepare("select * from member where member.username='$u_name'"
 $user_stmt->execute();
 $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 $u_id = $user['user_id'];
+echo $u_id;
  if(isset($_POST['btn_upload'])) {
      $filetmp = $_FILES['file_img']['tmp_name'];
      $filename = $u_id . '_' . $_FILES['file_img']['name'];
@@ -34,6 +35,7 @@ $u_id = $user['user_id'];
              $_SESSION['error'] = "สามารถเก็บได้เฉพาะไฟล์ <strong>JPEG</strong>  หรือ <strong>PNG</strong> เท่านั้น";
          }
      }
+    }
      ?>
      <html>
      <head>
@@ -102,6 +104,7 @@ $u_id = $user['user_id'];
 
      </body>
      </html>
+     
      <?php
      function test($filepath, $filename)
      {
@@ -182,5 +185,4 @@ $u_id = $user['user_id'];
 
          return $result_image;
      }
- }
 ?>
