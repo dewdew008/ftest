@@ -20,7 +20,7 @@ $u_id = $user['user_id'];
          echo $filesize;
          $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,user_id)
                 VALUES(?,?,?,?,?,?)");
-         if ($stmt->execute([null, $filetmp, $filepath, $filetype, $filetitle, $u_id])) {
+         if ($stmt->execute([null, $filename, $filepath, $filetype, $filetitle, $u_id])) {
              header("Location: index.php");
          } else {
              echo "Something went wrong!";
