@@ -19,13 +19,9 @@ echo $u_id;
      if ($filetype == "image/jpeg" || $filetype == "image/png" || $filetype == "image/gif") {
          move_uploaded_file($filetmp, $filepath);
          echo $filesize;
-         $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,user_id)
-                VALUES(?,?,?,?,?,?)");
-         if ($stmt->execute([null, $filename, $filepath, $filetype, $filetitle, $u_id])) {
-
-             $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,img_watermark,user_id)
-                VALUES(?,?,?,?,?,?,?)");
-             if ($stmt->execute([null, $filename, $filepath, $filetype, $filetitle, test($filepath, $filename), $u_id])) {
+         $stmt = $db->prepare("INSERT INTO photo(img_id,img_name,img_path,img_type,img_title,img_watermark,user_id)
+         VALUES(?,?,?,?,?,?,?)");
+      if ($stmt->execute([null, $filename, $filepath, $filetype, $filetitle, test($filepath, $filename), $u_id])) {            
 
                  header("Location: index.php");
              } else {
@@ -35,7 +31,7 @@ echo $u_id;
              $_SESSION['error'] = "สามารถเก็บได้เฉพาะไฟล์ <strong>JPEG</strong>  หรือ <strong>PNG</strong> เท่านั้น";
          }
      }
-    }
+    
      ?>
      <html>
      <head>
@@ -185,4 +181,5 @@ echo $u_id;
 
          return $result_image;
      }
+
 ?>
