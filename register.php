@@ -58,10 +58,20 @@
                                         <input type="text" name="lastname" id="last_name" class="form-control input-sm" placeholder="Last Name">
                                     </div>
                                 </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" class="form-control input-sm" placeholder="User Name" >
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Phone" maxlength="10" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group" ">
-                                <input  onBlur=" checkAvailability()" type=" email" name="username" id="username" class="form-control input-sm" placeholder="Email Address">
+                                <input  onBlur=" checkAvailability()" type=" email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
                             </div>
 
                             <div class="row">
@@ -77,8 +87,8 @@
                                 </div>
                             </div>
 
-                            <input type="submit" value="Register" id="submit" class="btn btn-info btn-block" onclick="window.location='login.php'">
-
+                            <input type="submit" value="Register" id="submit" class="btn btn-info btn-block">
+                            <!-- <input type="submit" value="Register" id="submit" class="btn btn-info btn-block" onclick="window.location='login.php'"> -->
                         </form>
                     </div>
                 </div>
