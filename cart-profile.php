@@ -11,12 +11,20 @@ if (isset($_GET['logout'])){
     unset($_SESSION['username']);
     header('Location: login.php');
 }
-$user_id = $_GET['userID'];
-//echo "$user_id";
+
+    $user_id = $_GET['userID'];
+    $user_own = $db->prepare("select * from member where user_id = '$user_id'");
+    $user_own->execute();
+    $user_own = $user_own->fetch(PDO::FETCH_ASSOC);
+
 $username = $_SESSION['username'];
 $user_stmt = $db->prepare("select * from member where username = '$username'");
 $user_stmt->execute();
 $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
+
+
+//echo "$user_id";
+
 
 ?>
 <html>
@@ -25,7 +33,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/lightbox.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title><?php echo $user["firstname"]." ".$user["lastname"]; ?></title>
+    <title><?php echo $user_own["firstname"]." ".$user_own["lastname"]; ?></title>
 </head>
 <body>
 <!-- Nav bar -->
@@ -57,16 +65,16 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 </nav>
 
-<h1 class="text-center"> <?php echo $user["firstname"]." ".$user["lastname"]; ?></h1>
+<h1 class="text-center"> <?php echo $user_own["firstname"]." ".$user_own["lastname"]; ?></h1>
 <div class="container">
     <?php
-    if($_SESSION['username'] == $user['username']){
+    if($_SESSION['username'] == $user_own['username']){
         ?>
         <a href="upload-photo.php" class="btn btn-success btn-lg btn-block">Add Photo</a>
         <?php
     }
     ?>
-</div>
+
 <section class="photo">
     <div class="container">
         <div class="photo-grid">
@@ -94,13 +102,13 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
             <!--                </div> -->
             <?php
 
-            $stmt = $db->prepare("SELECT * FROM photo  where user_id = {$user["user_id"]} ORDER BY img_id DESC");
+            $stmt = $db->prepare("SELECT * FROM photo  where user_id = {$user_own["user_id"]} ORDER BY img_id DESC");
             if($stmt->execute()){
                 while($img = $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
                     <div class="photo-grid--item">
                         <a href="cart-image.php?id=<?php echo $img['img_id'];?>">
-                            <img src="<?php echo $img['img_path']?>" alt="">
+                            <img src="<?php echo $img['img_watermark']?>" alt="">
                         </a>
                     </div>
 
@@ -111,7 +119,7 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
 </section>
-
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="js/lightbox.js"></script>
 </body>

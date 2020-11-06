@@ -20,7 +20,9 @@
             $result = $select_stmt->fetch(PDO::FETCH_ASSOC);
             if(count($result)){
                 $username = $result['username'];
+                $user_id = $result['user_id'];
                 $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $user_id;
                 header("Location: index.php");
                 unset($_SESSION['error']);
 

@@ -1,5 +1,5 @@
 <?php
-$name= $_GET['nama'];
+$name= $_POST['nama'];
 
 header('Content-Description: File Transfer');
 header('Content-Type: application/force-download');
@@ -11,6 +11,6 @@ header('Pragma: public');
 header('Content-Length: ' . filesize($name));
 ob_clean();
 flush();
-readfile("your_file_path/".$name); //showing the path to the server where the file is to be download
+readfile($name); //showing the path to the server where the file is to be download
 exit;
 ?>
