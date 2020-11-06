@@ -35,9 +35,9 @@
             header("Location: login.php");
         }
         ?>
-        
+
         <div <i class="fa fa-align-center" aria-hidden="true"></i>
-        &ensp;
+            &ensp;
             <div class="row centered-form">
 
                 <div class="panel panel-default">
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="form-group" ">
-                                <input  onBlur=" checkAvailability()" type=" email" name="username" id="username" class="form-control input-sm" placeholder="Email Address">
+                                <input  onchange=" ValidateEmail(document.regis.username)" type=" email" name="username" id="username" class="form-control input-sm" placeholder="Email Address">
                             </div>
 
                             <div class="row">
@@ -155,8 +155,12 @@
             }
         });
 
-        function checkAvailability() {
-
+        function ValidateEmail(mail) {
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(myForm.emailAddr.value)) {
+                return (true)
+            }
+            alert("You have entered an invalid email address!")
+            return (false)
         }
     </script>
     <!--<form method="post" action="register_db.php">
