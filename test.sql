@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2020 at 06:08 AM
+-- Generation Time: Nov 06, 2020 at 06:33 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -72,12 +72,13 @@ CREATE TABLE `photo` (
 --
 
 INSERT INTO `photo` (`img_id`, `img_name`, `img_path`, `img_type`, `img_title`, `img_watermark`, `user_id`) VALUES
-(23, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1),
-(24, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1),
 (25, '1__DSC5867.JPG', 'img/customer/1__DSC5867.JPG', 'image/jpeg', '0000', 'img/with-credit/result_1__DSC5867.JPG', 1),
 (26, '2_blogmedia-32872.jpg', 'img/customer/2_blogmedia-32872.jpg', 'image/jpeg', '00', 'img/with-credit/result_2_blogmedia-32872.jpg', 2),
 (29, '6_70.jpg', 'img/customer/6_70.jpg', 'image/jpeg', 'ss', 'img/with-credit/result_6_70.jpg', 6),
-(31, '6_23270290_1164002033731839_6561955943675112130_o.jpg', 'img/customer/6_23270290_1164002033731839_6561955943675112130_o.jpg', 'image/jpeg', 'gene', 'img/with-credit/result_6_23270290_1164002033731839_6561955943675112130_o.jpg', 6);
+(31, '6_23270290_1164002033731839_6561955943675112130_o.jpg', 'img/customer/6_23270290_1164002033731839_6561955943675112130_o.jpg', 'image/jpeg', 'gene', 'img/with-credit/result_6_23270290_1164002033731839_6561955943675112130_o.jpg', 6),
+(33, '6_99-1.jpg', 'img/customer/6_99-1.jpg', 'image/jpeg', 'test', 'img/with-credit/result_6_99-1.jpg', 6),
+(35, '6_0CA5ADBC-3FC3-4D34-BCB8-7793F3286B6E - Pawanrat SANGKHTHORN.jpeg', 'img/customer/6_0CA5ADBC-3FC3-4D34-BCB8-7793F3286B6E - Pawanrat SANGKHTHORN.jpeg', 'image/jpeg', '0', 'img/with-credit/result_6_0CA5ADBC-3FC3-4D34-BCB8-7793F3286B6E - Pawanrat SANGKHTHORN.jpeg', 6),
+(37, '6_Annotation 2020-07-21 143604.png', 'img/customer/6_Annotation 2020-07-21 143604.png', 'image/png', '00', 'img/with-credit/result_6_Annotation 2020-07-21 143604.png', 6);
 
 --
 -- Indexes for dumped tables
@@ -110,7 +111,7 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `photo`
 --
 ALTER TABLE `photo`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables
