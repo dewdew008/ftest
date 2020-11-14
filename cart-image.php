@@ -103,8 +103,13 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Download -->
             <?php
-
-                            $file = $img['img_path']; //Let say If I put the file name Bang.png
+                            if($img['user_id']!=$_SESSION['user_id']){
+                                $file = $img['img_watermark'];
+                            }
+                                else{
+                                     $file = $img['img_path'];
+                                }
+                            //Let say If I put the file name Bang.png
                             // echo "<a href='download.php?nama=".$file."' class='btn btn-danger'>download</a> ";
                             ?>
                            <form method="POST" action="download.php">

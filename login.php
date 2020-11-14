@@ -38,7 +38,7 @@ session_start();
                 <div class="card-body">
                     <form method="post" action="login_db.php">
                         <div class="form-group">
-                            <label for="Username">E-mail</label>
+                            <label for="Username">User Name</label>
                             <input type="text" class="form-control" id="username" maxlength="10" name="txt-username">
                         </div>
                         <div class="form-group">
