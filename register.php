@@ -35,9 +35,9 @@
             header("Location: login.php");
         }
         ?>
-        
+
         <div <i class="fa fa-align-center" aria-hidden="true"></i>
-        &ensp;
+            &ensp;
             <div class="row centered-form">
 
                 <div class="panel panel-default">
@@ -50,17 +50,17 @@
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="firstname" id="first_name" class="form-control input-sm" placeholder="First Name">
+                                        <input type="text" name="firstname" id="first_name" class="form-control input-sm" placeholder="First Name" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="lastname" id="last_name" class="form-control input-sm" placeholder="Last Name">
+                                        <input type="text" name="lastname" id="last_name" class="form-control input-sm" placeholder="Last Name" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" class="form-control input-sm" placeholder="User Name" >
+                                        <input type="text" name="username" id="username" class="form-control input-sm" placeholder="User Name" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
@@ -71,18 +71,18 @@
                             </div>
 
                             <div class="form-group" ">
-                                <input  onBlur=" checkAvailability()" type=" email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                                <input  onblur=" validateEmail(this)" type=" email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
                             </div>
 
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input onchange='check_pass();' type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+                                        <input onchange='check_pass();' type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input onchange='check_pass();' type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+                                        <input onchange='check_pass();' type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" required>
                                     </div>
                                 </div>
                             </div>
@@ -145,28 +145,43 @@
 
         }
 
-        $("#username").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true,
-                    remote: {
-                        url: "checkmail.php",
-                        type: "post"
-                    }
-                }
-            },
-            messages: {
-                email: {
-                    required: "Please Enter Email!",
-                    email: "This is not a valid email!",
-                    remote: "Email already in use!"
-                }
+
+        function validateEmail(emailField) {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+            if (reg.test(emailField.value) == false) {
+                alert('Invalid Email Address');
+                return false;
             }
-        });
+            var email = $("#email").val(); // value in field email
+            $.ajax({
+                type: 'post',
+                url: 'checkmail.php', // put your real file name 
+                data: {
+                    email: email
+                },
+                success: function(msg) {
+                    alert(msg); // your message will come here.     
+                }
+            });
 
-        function checkAvailability() {
+            return true;
 
+        }
+
+        function checkMailStatus() {
+            //alert("came");
+            var email = $("#email").val(); // value in field email
+            $.ajax({
+                type: 'post',
+                url: 'checkmail.php', // put your real file name 
+                data: {
+                    email: email
+                },
+                success: function(msg) {
+                    alert(msg); // your message will come here.     
+                }
+            });
         }
     </script>
     <!--<form method="post" action="register_db.php">
@@ -198,7 +213,7 @@
             <a href="login.php" class="btn btn-danger">Back</a>
         </form>!-->
     </div>
-
+   
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
