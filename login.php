@@ -1,5 +1,8 @@
 <?php require("connection.php");
 session_start();
+if(isset($_GET['text'])){
+    $mess = $_GET['text'];
+}
 ?>
 <html>
 
@@ -25,11 +28,12 @@ session_start();
                 </div>
                 <hr>
                 <?php
-                if (isset($_SESSION['error'])) {
+                if (isset($mess)) {
 
                 ?>
                     <div class="alert alert-danger" role="alert">
-                        <?php echo $_SESSION['error']; ?>
+                        <?php echo $mess; 
+                        ?>
                     </div>
 
                 <?php

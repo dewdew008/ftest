@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2020 at 09:12 AM
+-- Generation Time: Nov 14, 2020 at 07:55 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- Database: `shoot`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `member` (
   `user_id` int(11) NOT NULL,
-  `q` int(11) DEFAULT NULL,
   `username` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   `firstname` varchar(1000) NOT NULL,
@@ -44,12 +43,12 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`user_id`, `q`, `username`, `password`, `firstname`, `lastname`, `email`, `phone`, `status`) VALUES
-(1, 0, 'admin', '0WMi/', 'Dew', 'Chanayut', 'admin@gmail.com', '0954141762', 'USER'),
-(2, 0, 'admin2', '0WMi/t', 'admin2', 'admin2', 'admin2@gmail.com', '0000000000', 'USER'),
-(3, 0, 'admin3', '0WMi/w', 'dew', 'qws', 'asdwq@dwe.com', '0000000000', 'USER'),
-(5, NULL, 'test', '2S2', 'ยีน', 'test', 'thanathorn001@gmail.com', '0000000000', 'USER'),
-(6, NULL, 'Gene013', '0S=/aw', 'Thanathorn', 'Songpinit', 'thanathorn001@gmail.com', '0829919610', 'USER');
+INSERT INTO `member` (`user_id`, `username`, `password`, `firstname`, `lastname`, `email`, `phone`, `status`) VALUES
+(1, 'admin', 'abcwh', 'Dew', 'Chanayut', 'admin@gmail.com', '0954141762', 'USER'),
+(2, 'admin2', 'abcwh8', 'admin2', 'admin2', 'admin2@gmail.com', '0000000000', 'USER'),
+(3, 'admin3', 'abcwhD', 'dew', 'qws', 'asdwq@dwe.com', '0000000000', 'USER'),
+(5, 'test', 'TeWT', 'ยีน', 'test', 'thanathorn002@gmail.com', '0000000000', 'USER'),
+(6, 'Gene013', 'paWKhqVD', 'Thanathorn', 'Songpinit', 'thanathorn001@gmail.com', '0829919610', 'USER');
 
 -- --------------------------------------------------------
 
@@ -105,7 +104,7 @@ ALTER TABLE `photo`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `photo`

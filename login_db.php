@@ -5,8 +5,8 @@
     if(isset($_POST['login-user'])){
         $username = $_POST['txt-username'];
         $password = $_POST['txt-password'];
-        $p = 7;
-        $q = 13;
+        $p = 2;
+        $q = 31;
         $cipher =  RSA::Cryptosystem_En($password,$p,$q);
         $password = $cipher;
 
@@ -39,5 +39,3 @@
         $_SESSION['error'] = "Something Wrong!";
         header("Location: login.php");
     }
-
-?>
