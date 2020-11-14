@@ -12,7 +12,7 @@ class RSA{
 
     public function myMod($n,$q){
         if( $n < 0){
-            return $n + ($n % $q);
+            return $q-(($n*(-1)%$q));
         }
         return $n % $q;
     }
@@ -23,10 +23,12 @@ class RSA{
             $a = $b;
             $b = $m;
         }
+        echo $a." ";
         return $a;
     }
+    
     public function Cryptosystem_En($str,$p,$q){
-        $TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/=";
+        $TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         $len = strlen($TABLE);
         $n = $p * $q;
         $a = ($p - 1) * ($q - 1);
@@ -60,7 +62,7 @@ class RSA{
             if($test < 0){
                 $test = $test+ ($test - ($len-1));
             }
-
+            echo $test;
             $output .= (string)$TABLE[(int)$test];
 
         }
@@ -90,7 +92,7 @@ class RSA{
 
     public function Cryptosystem_De( $str,$p,$q){
 
-        $TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/=";
+        $TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         $len = strlen($TABLE);
         $n = $p * $q;
         $a = ($p - 1) * ($q - 1);
