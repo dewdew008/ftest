@@ -12,11 +12,11 @@
 
         if(empty($username)){
             $_SESSION['error'] = "Username required.";
-            header("Location: login.php");
+            header("Location: login.php?text=Username required.");
         }
         else if(empty($password)){
             $_SESSION['error'] = "Password required.";
-            header("Location: login.php");
+            header("Location: login.php?text=Password required.");
         }
         else{
             $select_stmt = $db->prepare("select * from member where username ='$username' and password ='$password'");
@@ -37,5 +37,5 @@
 
     }else{
         $_SESSION['error'] = "Something Wrong!";
-        header("Location: login.php");
+        header("Location: login.php?text=Something Wrong!");
     }
