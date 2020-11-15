@@ -42,7 +42,7 @@ if(isset($_GET['text'])){
                 <div class="card-body">
                     <form method="post" action="login_db.php">
                         <div class="form-group">
-                            <label for="Username">User Name</label>
+                            <label for="Username">Username</label>
                             <input type="text" class="form-control" id="username" maxlength="10" name="txt-username">
                         </div>
                         <div class="form-group">

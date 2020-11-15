@@ -23,8 +23,8 @@ if (isset($_POST['username']))
     $u_email = ($_POST['email']);
     $u_phone = ($_POST['phone']);
     $u_status = "USER";
-    $p = 7;
-    $q = 13;
+    $p = 2;
+    $q = 31;
     $cipher =  RSA::Cryptosystem_En($u_password,$p,$q);
     $u_password = $cipher;
 
